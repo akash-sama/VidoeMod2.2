@@ -1,9 +1,7 @@
 _NOTE: badcode contains different methods and building model and should be ingnored_
 
 
-
-Before running the application, you need to install the necessary packages listed in requirements.txt. Run the following command:
-
+## Running the Program:
 ### Install Required Packages
 
 Before running the application, you need to install the necessary packages listed in `requirements.txt`. Run the following command:
@@ -11,8 +9,7 @@ Before running the application, you need to install the necessary packages liste
 ```bash
 pip install -r requirements.txt
 ```
-
-then
+### Run the Video modration app:
 
 ```bash
 python app.py
