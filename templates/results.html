@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+
+    <script>
+function showMessage(flagValue) {
+    const messages = {
+        0: '<i> <strong style="font-size: larger;">Safe</strong> - with no issues </i>',
+        1: '<i><strong style="font-size: larger;">Modest</strong>  - Clothing that covers the body well but may include tight dresses,leggings, lightly more skin on upper chest.</i>',
+        2: '<i><strong style="font-size: larger;">Revealing</strong>  - Outfits that show more skin, including tank tops, short shorts, mini skirts, or low-cut tops.</i>',
+        3: '<i><strong style="font-size: larger;">Scant </strong>  - Very little clothing, such as bikinis, underware, or other garments that cover only the essentials.</i>',
+        4: '<i><strong style="font-size: larger;">Nude</strong>  - No clothing at all.'
+    };
+
+    const message = messages[flagValue] || 'No specific message for this flag';
+
+    // Display the message
+    document.getElementById('flagDescription').innerHTML = message;
+}
+   </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Analysis Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .results { margin: 20px; }
+        .result-section { margin-bottom: 40px; }
+        h2 { color: #333; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+    <div class="results">
+        <div class="result">
+            <h2 style="font-size: 22px;">Violence Detection:</h2>
+            {% if main_fight_data.Violence == 0 %}
+            <h3 style="font-size: 18px;">No Violence😊👍</h3>
+            {% else %}
+            <h3 style="font-size: 18px;">Violence😡👎 </h3>
+             {% endif %}
+            <p>Confidence: {{ main_fight_data.Confidence }} </p>
+            <p>Processing Time: {{ main_fight_data.processing_time }} seconds</p>
+        </div>
+
+
+
+      <div class="result2">
+            <h2 style="font-size: 22px;">Nuidity Analysis:</h2>
+
+          <h3 onclick="showMessage({{predict_data.flag}})" style="font-size: 22px;">Score: {{predict_data.flag}} </h3>
+          <p id="flagDescription"></p>
+
+
+            <p>Confidence: {{ predict_data.Confidence }}%</p>
+            <p>Time: {{ predict_data.time }}</p>
+            <div id="dataContainer" data-flags='{{ predict_data.Top_SEXUAL_Flags | tojson }}'></div>
+            <button id="analyzeBtn">Break Down of the videos content:</button>
+            <div style="display:none;" id="chartContainer">
+            <canvas id="pieChart"></canvas>
+      </div>
+
+      </div>
+
+        </div>
+
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/Chart.js') }}"></script>
+</body>
+</html>

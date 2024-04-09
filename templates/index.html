@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Video Moderation</title>
+    <style>
+        * {
+            font-size:20px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Video Moderation</h1>
+        <p>Select an video file to upload:</p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="video" />
+        <button id="predict-button" type="submit">Predict</button>
+        </form>
+        <h2><span id="final-pred"></span></h2>
+        <h3><span id="prob"></span></h3>
+    </div>
+
+</body>
+</html>

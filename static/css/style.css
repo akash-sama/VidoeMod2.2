@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dec7e3;
+  }
+
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .result {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffecec;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    align: right
+  }
+   .result2 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ecf4ff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    align: right
+  }
+
+ h1 {
+  text-align: center;
+  margin-top: 0;
+  color: #cb0000;
+  font-size: 40px;
+  -webkit-text-stroke: 1px #4e044f;
+  text-stroke: 1px #4e044f;
+  font-family: 'Playfair Display', serif;
+}
+
+
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+  color: #4f4c4c; /* Black color for text */
+  text-transform: uppercase; /* CAPITALIZE text */
+  -webkit-text-stroke: 1px #4e044f; /* Purple text stroke for emphasis */
+  font-size: 30px; /* Size of the font */
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 300
+}
+
+  h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #444141;
+    font-size: 25px
+  }
+
+  h4 {
+    text-align: center;
+    margin-top: 0;
+    color: #807878;
+    font-size: 15px
+   }
+
+  p {
+    margin: 10px 0;
+  }
+
+  input[type="file"] {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) inset;
+  }
+#predict-button {
+  display: block;
+  margin: 15px auto; /* Centered and added more margin for spacing */
+  font-size: 15 px;
+  padding: 10px 25px; /* Increased padding for a larger button */
+  border: 2px solid #ea2b96; /* Adding a border to make it pop */
+  background-color: #f4e5f6;
+  color: #000000; /* Changed to white for better contrast */
+  border-radius: 10px; /* Larger radius for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transitions */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#predict-button:hover {
+  background-color: #f82d41;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+  input[type="predict"] {
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333333;
+    color: #e635d7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.7s ease-in-out;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #666666;
+  }
+

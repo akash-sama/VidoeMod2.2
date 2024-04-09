@@ -1,0 +1,8 @@
+Flask==2.0.1
+jsonify==0.5
+numpy==1.19.5
+opencv-python==4.5.1.48
+onnxruntime==1.8.0
+scikit-image==0.18.1
+tensorflow==2.4.1
+
