@@ -31,4 +31,4 @@ The order of the files is importent and will not work if changed
 *Superdupermodel.h5 => for violence*
 
 - Trained on : Approximately 10-second video clips of sports fouls, MMA/Boxing, CCTV, and movie clips.
-- Framework : Utilizes deep learning models with Keras, a high-level neural networks API. It is much heavier but allows for easier addition and configuration of training data.a
+- Framework : Utilizes deep learning models with Keras, a high-level neural networks. It is much heavier but allows for easier addition and configuration of training data.a
