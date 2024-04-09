@@ -1,4 +1,4 @@
-_NOTE: badcode contains different methods and building model and should be ingnored_
+_NOTE: BadCode contains different methods and building model and should be ingnored_
 
 
 ## Running the Program:
