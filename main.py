@@ -2,11 +2,13 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
+#ignore warrnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import cv2
 import sys
 
+#Ignore other systems outputs
 sys.stdout = open(os.devnull, 'w')
 sys.stderr = open(os.devnull, 'w')
 
@@ -21,6 +23,13 @@ from onnxruntime.capi import _pybind_state as C
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+'''
+*************************************************************************************************
+This part of the code is trying to dectet nudity:
+**************************************************************************************************
+'''
+
+# Warning do not change order
 __labels = [
     "FEMALE_GENITALIA_COVERED",
     "SAFE_Female_face",
@@ -42,7 +51,7 @@ __labels = [
     "BUTTOCKS_COVERED",
 ]
 
-
+# takes each frame of the video in the form of a tensor, for NUDITY
 def preprocess_image(image_array, target_size=320):
     img = cv2.cvtColor(image_array, cv2.COLOR_BGR2RGB)
     height, width = img.shape[:2]
@@ -79,6 +88,9 @@ def _postprocess(output):
             scores.append(max_score)
 
     detections = []
+    # Any feature like sexy face can be skiped 
+    # The "face' will flag any clear face so its best to remove it
+    
     safList = ["SAFE_FACE_FEMALE", "SAFETY_COVERED"]
 
     if not scores or any(item in scores for item in safList):
@@ -166,7 +178,11 @@ def predict(video_path):
         "Confidence": "{:.2f}".format(max_sexiness_score * 102),
         "time": "{:.2f}".format(Timetaken) + 'Sec'
     }
-
+    
+    # this classifes the flags so the output comes as a score from 0-4
+    # There is a better ways, takes to much time but whenever I touch the main function it gives a error
+    #TODO: The program shoudl stop and give 4 as soon as it see nudity
+    
     list0 = ["SAFE"]
     list1 = ["SAFE_Female_face", "ARMPITS_COVERED", "LEGS_FEET_COVERED", "BUTTOCKS_COVERED"]
     list2 = ["LEGS_FEET_EXPOSED", "ARMPITS_EXPOSED", "BELLY_EXPOSED","FEMALE_BREAST_COVERED"]
@@ -193,8 +209,10 @@ def predict(video_path):
 This part of the code is trying to do Violence:
 **************************************************************************************************
 '''
+# this combines a trained model and a untrained model
+# code for buiding the model was reffred from a research paper
 
-model = load_model('Models/Superdupemodel.h5')
+model = load_model('Models/Superdupemodel.h5') #  This model was made by mixing model.h5 with supermodel.h5
 
 
 def video_reader(filename, frame_count=30, resize_dim=(160, 160)):
