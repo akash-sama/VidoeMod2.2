@@ -20,6 +20,9 @@ The program should run on the local servear and the website can be viewed on
  http://127.0.0.1:5000/
 
 The order of the files is importent and will not work if changed
+# The Program:
+If you run the program correctky It shoudl look something like this:
+<img src="Untitled.png" alt="The Webpage">
 
 ### General Overview of the Modles:
 
