@@ -21,7 +21,7 @@ The program should run on the local servear and the website can be viewed on
 
 The order of the files is importent and will not work if changed
 # The Program:
-If you run the program correctky It shoudl look something like this:
+If you run the program correctly It should look something like this:
 <img src="Untitled.gif" alt="The Webpage">
 
 ### General Overview of the Modles:
