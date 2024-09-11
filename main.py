@@ -198,7 +198,7 @@ def predict(video_path):
             if item["Class"] in value:
                 flag = max(flag, key)
 
-    result["flag"] = flag
+    result["flag"] = flag * 25
 
     json_result = json.dumps(result, indent=2)
     return json_result
@@ -262,7 +262,7 @@ def main_fight(video_path, accuracy=0.9):
         start_time = time.time()
         f, percent = pred_fight(model, datav, accuracy_threshold=accuracy)
         processing_time = time.time() - start_time
-        Result1 = {'Violence': int(f),
+        Result1 = {'Violence': int(f) * 100,
                    'Confidence': "{:.2f}".format(percent * 100) + "%",
                    'processing_time': "{:.2f}".format(processing_time)
                    }
