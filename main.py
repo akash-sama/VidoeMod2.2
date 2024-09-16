@@ -95,7 +95,8 @@ def _postprocess(output):
 
     if not scores or any(item in scores for item in safList):
         detections.append(
-            {"class": 'SAFE',
+            {
+                "class": 'SAFE',
              "score": 0}
         )
 
@@ -103,7 +104,8 @@ def _postprocess(output):
         score = max(scores)
         class_id = max(class_ids)
         detections.append(
-            {"class": __labels[class_id],
+            {
+                "class": __labels[class_id],
              "score": float(score)}
         )
 
@@ -209,6 +211,8 @@ def predict(video_path):
 This part of the code is trying to do Violence:
 **************************************************************************************************
 '''
+
+
 # this combines a trained model and a untrained model
 # code for buiding the model was reffred from a research paper
 
@@ -262,10 +266,13 @@ def main_fight(video_path, accuracy=0.9):
         start_time = time.time()
         f, percent = pred_fight(model, datav, accuracy_threshold=accuracy)
         processing_time = time.time() - start_time
-        Result1 = {'Violence': int(f) * 100,
+        
+        Result1 = {
+                   'Violence': int(f) * 100,
                    'Confidence': "{:.2f}".format(percent * 100) + "%",
                    'processing_time': "{:.2f}".format(processing_time)
                    }
+        
         Result1 = json.dumps(Result1, indent=2)
         return Result1
 
